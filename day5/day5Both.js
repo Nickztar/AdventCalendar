@@ -2,10 +2,12 @@ const arrInput = [3,225,1,225,6,6,1100,1,238,225,104,0,1,192,154,224,101,-161,22
 let currentArr = [...arrInput];
 
 function opComputer(part2 = false) {
-    console.log(`Part: ${part2 ? 2 : 1}`)
+    console.time(`Part: ${part2 ? 2 : 1}`)
     let inputValue = part2 ? 5 : 1;
     let index = 0;
-    const argument = i => !!(Math.floor(currentArr[index] / 10**(i+1)) % 10) ? currentArr[index + i] : currentArr[currentArr[index + i]];
+    //Gets the value/position depending on Immediate or Parameter
+    const argument = i => !!(Math.floor(currentArr[index] / 10**(i+1)) % 10) ? currentArr[index + i] : currentArr[currentArr[index + i]]; 
+    //Updates the value parameter
     const changeVal = v => currentArr[currentArr[index + 3]] = v;
     while(currentArr[index] != 99){
         let opCode = currentArr[index] % 100;
@@ -41,10 +43,11 @@ function opComputer(part2 = false) {
                 index += 4;
                 break;
             default:
-                console.log("If I get this I will cry", currentArr[index]);
+                console.log("If I get this I will cry");
                 break;
         }
     }
+    console.timeEnd(`Part: ${part2 ? 2 : 1}`)
 }
 
 opComputer();
