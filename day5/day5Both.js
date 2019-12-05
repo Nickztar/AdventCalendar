@@ -25,7 +25,9 @@ function opComputer(part2 = false) {
                 index += 2;
                 break;
             case 4:
-                console.log("Output: " + argument(1)); //Output
+                if (argument(1) != 0){
+                    console.log("Output: " + argument(1)); //Output
+                }
                 index += 2;
                 break;
             case 5:
@@ -53,3 +55,9 @@ function opComputer(part2 = false) {
 opComputer();
 currentArr = [...arrInput];
 opComputer(true);
+/*
+Output: 11049715
+Part: 1: 13.197ms
+Output: 2140710
+Part: 2: 2.806ms 
+*/
