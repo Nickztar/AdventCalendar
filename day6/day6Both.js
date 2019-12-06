@@ -1,7 +1,6 @@
 const { readFileSync } = require('fs');
 const re = new RegExp('\r', 'g');
 const input = readFileSync("./day6Input.txt", "utf8").replace(re, '').split('\n').map(s => s.split(')'));
-console.log(input);
 console.time("RuntimeP1");
 console.time("RuntimeP2");
 //Maps out all of the points and their parents
@@ -26,7 +25,7 @@ for(const key of Object.keys(nodes)){
     }
 }
 console.log(`Part 1: ${orbitCheck}`);
-console.timeEnd("RuntimeP2");
+console.timeEnd("RuntimeP1");
 
 
 //Walk from both directions. Walk from me and santa and count the steps it took from each directon
@@ -47,3 +46,9 @@ while(me.parent){
     me = me.parent;
     fromMe++;
 }
+/* 
+Part 1: 147807
+RuntimeP1: 25.881ms
+Part 2: 229
+RuntimeP2: 32.357ms
+*/
